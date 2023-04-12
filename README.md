@@ -48,8 +48,22 @@ After training and deploying your model, setting up a Lambda function is an impo
 ### Step 4: Lambda security setup and testing 
 
 - **Adding endpoints permission to lambda fucntions**
+Lambda function is going to invoke deployed endpoint. However, the lambda function will only be able to invoke  endpoint if it has the proper security policies attached to it.
 
-![image](https://user-images.githubusercontent.com/83595196/231404830-1a5e5a02-f7d6-4da6-8bce-a146dbadf6e2.png)
+Two security policy has been attached to the role : 
+1. Basic Lambda function execution 
+2. Sagemaker endpoint invocation permission
+
+** Vulnerability Assesment ** 
+- giving 'Full Access' has potential to be exploited by malicous actor.
+- old and inactive roles are at the risk to compromise lambda fucntion. These roles should be deleted.
+- roles with policies no longer in use has potential of unauthorized access. These policies should be removed.
+
+- creating policy with permission to only invoke endpoint.
+
+![image](https://user-images.githubusercontent.com/83595196/231532304-f1fd3dc4-dafa-4d3b-afc5-2f93b2bd8893.png)
+![image](https://user-images.githubusercontent.com/83595196/231532599-a4bd629f-1290-4ca6-a9f7-534b7839a63c.png)
+
 
 - **Testing Lambda Function**
 
