@@ -46,7 +46,7 @@ ec2train.py trains model with specific arguments while hpo.py takes argument for
 After training and deploying your model, setting up a Lambda function is an important next step. Lambda functions enable your model and its inferences to be accessed by API's and other programs, so it's a crucial part of production deployment.
 
 ### Step 4: Lambda security setup and testing 
-Addidng endpoints permission to lambda fucntions.
+- ** Adding endpoints permission to lambda fucntions**
 
 ![image](https://user-images.githubusercontent.com/83595196/231404830-1a5e5a02-f7d6-4da6-8bce-a146dbadf6e2.png)
 
@@ -54,7 +54,7 @@ Addidng endpoints permission to lambda fucntions.
 
 ![image](https://user-images.githubusercontent.com/83595196/231405755-5cd0843d-d9f1-4cee-856e-20bb96fc3152.png)
 
-**Response**
+- **Response**
 ```
 {
   "statusCode": 200,
@@ -68,4 +68,32 @@ Addidng endpoints permission to lambda fucntions.
 }
 ```
 ### Step 5: Lambda concurrency setup and endpoint auto-scaling
+
+- **Concurrency**
+
+Setting up concurrency for your Lambda function. Concurrency will make your Lambda function better able to accommodate high traffic because it will enable your function to respond to multiple invocations at once. I reserved 5 instances and provisioned 3 of them.
+
+```
+reserved instances: 5/1000
+provisioned instances: 3/5
+
+```
+
+![image](https://user-images.githubusercontent.com/83595196/231417556-adf0c679-4aca-4ac9-a6b4-6fd8a82a7b94.png)
+
+
+- **Auto-scaling**
+
+Sagemaker endpoints require automatic scaling to respond to high traffic. I enabled auto-scalling. 
+
+```
+minimum instances: 1
+maximum instances: 3
+target value: 20   // number of request which will trigger scaling
+scale-in time: 30 s
+scale-out time: 30 s
+```
+
+![image](https://user-images.githubusercontent.com/83595196/231415526-933655a8-6ecb-4a62-b14a-ab25738853eb.png)
+
 
