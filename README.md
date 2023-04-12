@@ -46,7 +46,7 @@ ec2train.py trains model with specific arguments while hpo.py takes argument for
 After training and deploying your model, setting up a Lambda function is an important next step. Lambda functions enable your model and its inferences to be accessed by API's and other programs, so it's a crucial part of production deployment.
 
 ### Step 4: Lambda security setup and testing 
-- ** Adding endpoints permission to lambda fucntions**
+- **Adding endpoints permission to lambda fucntions**
 
 ![image](https://user-images.githubusercontent.com/83595196/231404830-1a5e5a02-f7d6-4da6-8bce-a146dbadf6e2.png)
 
@@ -73,6 +73,10 @@ After training and deploying your model, setting up a Lambda function is an impo
 
 Setting up concurrency for your Lambda function. Concurrency will make your Lambda function better able to accommodate high traffic because it will enable your function to respond to multiple invocations at once. I reserved 5 instances and provisioned 3 of them.
 
+> - Provisioned concurrency :	computing resources that are available to be used immediately for requests to a Lambda function. have low cost but The downside is that                                 the maximum is a hard maximum. Thus, if your lambda function recieves more request then their will be latency requests.
+
+> - Reserved concurrency	: a set amount of computing resources that are reserved to be used for a Lambda function's concurrency. It creates instances that are always                               on and can reply to all traffic without requiring a wait for start-up times. Thus, have higher cost.
+
 ```
 reserved instances: 5/1000
 provisioned instances: 3/5
@@ -89,7 +93,7 @@ Sagemaker endpoints require automatic scaling to respond to high traffic. I enab
 ```
 minimum instances: 1
 maximum instances: 3
-target value: 20   // number of request which will trigger scaling
+target value: 20    // number of simulatneous requests which will trigger scaling
 scale-in time: 30 s
 scale-out time: 30 s
 ```
