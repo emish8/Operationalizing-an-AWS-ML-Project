@@ -1,5 +1,5 @@
 # Operationalizing-an-AWS-ML-Project
-## Dog Image Classfication
+## Dog Image Classification
 
 In this project, you will complete the following steps:
 
@@ -54,13 +54,25 @@ Two security policy has been attached to the role :
 1. Basic Lambda function execution 
 2. Sagemaker endpoint invocation permission
 
-** Vulnerability Assesment ** 
+**Vulnerability Assesment** 
 - Giving 'Full Access' has potential to be exploited by malicous actor.
 - Old and inactive roles are at the risk to compromise lambda fucntion. These roles should be deleted.
 - Roles with policies no longer in use has potential of unauthorized access. These policies should be removed.
 
  Creating policy with permission to only invoke specific endpoint.
-
+ ```
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "sagemaker:InvokeEndpoint",
+            "Resource": "arn:aws:sagemaker:*:271564095025:endpoint/pytorch-inference-2023-04-12-16-43-37-936"
+        }
+    ]
+}
+```
 ![image](https://user-images.githubusercontent.com/83595196/231534341-2e040696-a4bc-4faf-9f69-3625bc9f2024.png)
 
 ![image](https://user-images.githubusercontent.com/83595196/231532599-a4bd629f-1290-4ca6-a9f7-534b7839a63c.png)
@@ -89,7 +101,7 @@ Two security policy has been attached to the role :
 
 Setting up concurrency for your Lambda function. Concurrency will make your Lambda function better able to accommodate high traffic because it will enable your function to respond to multiple invocations at once. I reserved 5 instances and provisioned 3 of them.
 
->  Provisioned concurrency :	computing resources that are available to be used immediately for requests to a Lambda function. have low cost but The downside is that                                 the maximum is a hard maximum. Thus, if your lambda function recieves more request then their will be latency requests.
+>  Provisioned concurrency :	computing resources that are available to be used immediately for requests to a Lambda function. Have low cost but The downside is that                                 the maximum is a hard maximum. Thus, if your lambda function recieves more request then their will be latency requests.
 
 > Reserved concurrency	: a set amount of computing resources that are reserved to be used for a Lambda function's concurrency. It creates instances that are always                               on and can reply to all traffic without requiring a wait for start-up times. Thus, have higher cost.
 
@@ -109,7 +121,7 @@ Sagemaker endpoints require automatic scaling to respond to high traffic. I enab
 ```
 minimum instances: 1
 maximum instances: 3
-target value: 20    // number of simulatneous requests which will trigger scaling
+target value: 20    // number of simulataneous requests which will trigger scaling
 scale-in time: 30 s
 scale-out time: 30 s
 ```
