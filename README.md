@@ -14,22 +14,28 @@ In this project, you will complete the following steps:
 
 ![image](https://user-images.githubusercontent.com/83595196/231103691-a5eee425-91d8-43ee-abbd-d509c4170eeb.png)
 
-- S3 bucket for the job (sagemaker-studio-271564095025-7o3j8umt90b)
+- S3 bucket for the job (udacitysolution-1234)
 
-![image](https://user-images.githubusercontent.com/83595196/231104877-3e338a67-a9d2-4423-a683-339729bd18af.png)
+![image](https://user-images.githubusercontent.com/83595196/231358554-cf68cf5b-d44d-405f-956e-befedc6a8ac3.png)
 
-- Single instance training
+- Single instance training (1 epoch because of budget constraints)
 
 ![image](https://user-images.githubusercontent.com/83595196/231351357-c879e756-f48a-4631-bd6c-1ebeb826b06a.png)
 
-- Multi instance training (4 instance)
+- Multi-instance training (4 instances, 1 epoch because of budget constraints)
 
 ![image](https://user-images.githubusercontent.com/83595196/231350922-de52f333-c6ef-4da0-82b5-51de3110325a.png)
 
 - Deployment
-- 
+
 ![image](https://user-images.githubusercontent.com/83595196/231354962-db3fa311-e384-4c3f-bb1c-6d69fe3aadc5.png)
 
+### Step 2: EC2 Training
+
+We can train model on EC2 instance as well. I chose AMI with required library already installed. Deep Learning AMI GPU PyTorch 2.0.0  has latest PyTorch version. instance type selected was m5.xlarge because to low cost.
+
+### Step 3: Security and Testing
+### Step 4: Auto-scaling and Concurrency
 
 
 
