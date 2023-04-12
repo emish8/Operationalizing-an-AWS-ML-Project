@@ -55,13 +55,14 @@ Two security policy has been attached to the role :
 2. Sagemaker endpoint invocation permission
 
 ** Vulnerability Assesment ** 
-- giving 'Full Access' has potential to be exploited by malicous actor.
-- old and inactive roles are at the risk to compromise lambda fucntion. These roles should be deleted.
-- roles with policies no longer in use has potential of unauthorized access. These policies should be removed.
+- Giving 'Full Access' has potential to be exploited by malicous actor.
+- Old and inactive roles are at the risk to compromise lambda fucntion. These roles should be deleted.
+- Roles with policies no longer in use has potential of unauthorized access. These policies should be removed.
 
-- creating policy with permission to only invoke endpoint.
+ Creating policy with permission to only invoke specific endpoint.
 
-![image](https://user-images.githubusercontent.com/83595196/231532304-f1fd3dc4-dafa-4d3b-afc5-2f93b2bd8893.png)
+![image](https://user-images.githubusercontent.com/83595196/231534341-2e040696-a4bc-4faf-9f69-3625bc9f2024.png)
+
 ![image](https://user-images.githubusercontent.com/83595196/231532599-a4bd629f-1290-4ca6-a9f7-534b7839a63c.png)
 
 
