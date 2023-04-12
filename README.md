@@ -34,6 +34,10 @@ In this project, you will complete the following steps:
 
 We can train model on EC2 instance as well. I chose AMI with required library already installed. Deep Learning AMI GPU PyTorch 2.0.0  has latest PyTorch version. instance type selected was m5.xlarge because to low cost.
 
+![image](https://user-images.githubusercontent.com/83595196/231374337-2e63b8b4-2f06-45a9-bf50-858df92f2c4f.png)
+
+The following images shows the EC2 instance and the terminal running the **ec2train1.py** script for training the model.
+
 ### Step 3: Security and Testing
 ### Step 4: Auto-scaling and Concurrency
 
